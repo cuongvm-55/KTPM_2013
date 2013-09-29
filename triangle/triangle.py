@@ -15,7 +15,7 @@ def testInputType(a):
         return False
     return True
 
-def KiemTraTamGiac(a, b, c) :
+def detect_triangle(a, b, c) :
     if testInputType(a) == False or testInputType(b) == False or testInputType(c) == False :
         return "Input Type Error"
     

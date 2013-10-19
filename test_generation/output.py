@@ -26,6 +26,13 @@ for x in string:
         i = i+1
     array = sorted(array) #sap xep mang
 
+    #kiem tra cac khoang co hop le hay khong
+    i = 0
+    while (i < len(array)):
+        if (array[i][1] < array[i][0]):
+            raise Exception("Wrong Input")
+        i = i+1
+    
     #kiem tra overlap
     i = 0
     while (i < len(array)-1):
@@ -59,3 +66,5 @@ for each_variable_data in itertools.product(*listdata):
 #print element
 if __name__=="__main__":
     unittest.main()
+
+

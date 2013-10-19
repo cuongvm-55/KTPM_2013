@@ -30,14 +30,14 @@ for x in string:
     i = 0
     while (i < len(array)):
         if (array[i][1] < array[i][0]):
-            raise Exception("Wrong Input")
+            raise Exception("wrong input")
         i = i+1
     
     #kiem tra overlap
     i = 0
     while (i < len(array)-1):
         if (array[i][1] >= array[i+1][0]):
-            raise Exception("Overlap")
+            raise Exception("wrong input")
         i = i+1
 
     #tao cac gia tri cho test
@@ -49,22 +49,22 @@ for x in string:
         i = i+1
     listdata.append(templist)
 
+
 #Unittest
-import itertools
 import unittest
-from input import main
+import itertools
 
-class Tests(unittest.TestCase): 
-    def check(self, *arg):
-        self.assertEquals(main(*arg), -1) #goi ham main tu file input.py
+class Tests(unittest.TestCase):
+        pass
 
-for each_variable_data in itertools.product(*listdata):   
-    def ch(*arg):
-        return lambda self: self.check(*arg)
-    setattr(Tests, "test{0}".format(each_variable_data), ch(each_variable_data))
+def test_generator(*args):
+    def test(self):
+        self.assertEqual(main(*args),1)
+    return test
 
-#print element
 if __name__=="__main__":
+    for arr in itertools.product(*listdata):
+        test_name='test{0}'.format(arr)
+        test = test_generator(*arr)
+        setattr(Tests,test_name,test)
     unittest.main()
-
-
